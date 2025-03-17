@@ -27,32 +27,44 @@
 The next technical test is an user API using Mongodb connection for data management through Mongoose
 
 The endpoints made allow the following
+
     - User creation
+
     - List all users
+
     - User search by ID
+
     - User update (except password) filtering by ID
+
     - User elimination, searching for ID
 
 ## Project setup
 
 To execute the project it is necessary to have nest installed in the system
 (Version used 11.0.2)
-It is also necessary to have a connection to a Mongodb database (example from .env.example)
-    MONGO_URI="mongodb://[domain]:[mongo_port]/db_example"
 
 ```bash
 $ npm install
 ```
 
+It is also necessary to have a connection to a Mongodb database (example from .env.example)
+
+    MONGO_URI="mongodb://[domain]:[mongo_port]/db_example"
+
+
 Main Dependencies: 
 
 @nestjs/mongoose 
+
 @nestjs/testing
+
 @types/bcrypt
+
 class-validator
+
 @nestjs/mapped-types
 
-Local is configured to use port 3000
+*Local is configured to use port 3000
 
 ## Compile and run the project
 
@@ -77,22 +89,31 @@ $ npm run test
 
 ## Testing endpoints
 POST    url/users
+
 body request:
+
+```json
 {
   "name": "John Doe",
   "email": "john.doe@example.com",
   "password": "securepassword123"
 }
+```
 Successful response example
+```json
 {
   "id": "uuid",
   "name": "John Doe",
   "email": "john.doe@example.com",
   "createdAt": "2023-10-01T12:00:00Z"
 }
+```
 ------------------------------
+
 GET    url/users 
+
 Successful response example
+```json
 [
   {
     "id": "uuid",
@@ -107,40 +128,52 @@ Successful response example
     "createdAt": "2023-10-02T14:30:00Z"
   }
 ]
+```
 ------------------------------------
+
 GET     url/users/:id
+
     -specify id user
 
 Successful response example
+```json
 {
   "id": "uuid",
   "name": "John Doe",
   "email": "john.doe@example.com",
   "createdAt": "2023-10-01T12:00:00Z"
 }
+```
 ----------------------------------------
 
 PUT     url/users/:id
     -specify id user
 
   body request
+```json
 {
   "name": "John Updated",
   "email": "john.updated@example.com"
 }
+```
 Successful response example
+```json
 {
   "id": "uuid",
   "name": "John Updated",
   "email": "john.updated@example.com",
   "createdAt": "2023-10-01T12:00:00Z"
 }
+```
 ------------------------------------------
+
 DELETE     url/users/:id
     -specify id user
 
 Successful response example
+```json
 {
-  "message": "User deleted successfully""
+  "message": "User deleted successfully"
 }
+```
 
