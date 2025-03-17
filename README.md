@@ -40,9 +40,9 @@ The endpoints made allow the following
 
 ## Project setup
 
-To execute the project it is necessary to have nest installed in the system
-(Version used 11.0.2)
+To execute the project it is necessary to have node installed in the system
 
+To install all neccesary packages 
 ```bash
 $ npm install
 ```
